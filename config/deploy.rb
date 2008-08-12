@@ -22,15 +22,15 @@ role :app, production_server
 role :web, production_server
 role :db,  production_server, :primary => true
 
-set :rake, "/home/#{application}/gem.repos/bin/rake"
+set :rake, "/home/#{application}/bin/rake"
 
 namespace :deploy do
-#  task :after_update_code do
-#    db_path = "db/production.sqlite3"
-#    shared_db_path = "#{shared_path}/#{db_path}"
-#    dest_db_path = "#{release_path}/#{db_path}"
-#    run "! test -e #{dest_db_path} && ln -s #{shared_db_path} #{dest_db_path}"
-#  end
+  task :after_update_code do
+    db_path = "db/production.sqlite3"
+    shared_db_path = "#{shared_path}/#{db_path}"
+    dest_db_path = "#{release_path}/#{db_path}"
+    run "! test -e #{dest_db_path} && ln -s #{shared_db_path} #{dest_db_path}"
+  end
 
   desc "resart for our application"
   task :restart, :roles => :app, :except => { :no_release => true } do |t|
