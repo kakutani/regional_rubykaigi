@@ -1,0 +1,5 @@
+#!/bin/sh
+RUBYLIB=$HOME/lib/ruby
+GEM_HOME=$HOME/gem.repos
+PATH=$GEM_HOME/bin:$PATH
+$(dirname $0)/process/spawner -p 9000 -i 5
