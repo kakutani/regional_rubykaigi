@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  title: MyString
+  desc: MyText
+  publish_at: 2008-08-06 21:50:54
+  capacity: 1
+  force_disabled: false
+
+two:
+  name: MyString
+  title: MyString
+  desc: MyText
+  publish_at: 2008-08-06 21:50:54
+  capacity: 1
+  force_disabled: false

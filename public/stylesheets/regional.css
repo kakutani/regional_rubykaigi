@@ -1,0 +1,49 @@
+div.event {
+	padding-left: 20px;
+}
+
+div.event_desc {
+	margin-top: 10px;
+}
+
+div.event_desc h4 {
+	margin: 5px 0;
+}
+
+div.event_desc h5 {
+	margin-left: 1em;
+	color: #333;
+}
+
+div.event_desc p {
+	margin-left: 2em;
+	margin-bottom: 10px;
+}
+
+div.event_desc ul {
+	margin-left: 3em;
+}
+
+div.event_desc ul ul {
+	margin-left: 1em;
+}
+
+
+div.registration_link {
+	margin: 10px 0;
+	font-weight: bold;
+}
+
+div.backto {
+	margin-top: 20px;
+}
+
+span.closed {
+	color: #f00;
+	font-weight: bold;
+}
+
+span.official_tag {
+	font-size: 18px;
+	color: #333;
+}

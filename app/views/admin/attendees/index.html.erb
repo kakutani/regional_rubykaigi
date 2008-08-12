@@ -1,0 +1,18 @@
+<h1>参加登録者:<%= link_to h(@event.title), edit_admin_event_path(@event) %></h1>
+
+<table class="attendee_list">
+<tr>
+  <th>No.</th>
+  <th>名前</th>
+  <th>メールアドレス</th>
+</tr>
+<%- @attendees.each_with_index do |attendee, idx| -%>
+<tr>
+  <td><%=h idx + 1 %></td>
+  <td><%=h attendee.name %></td>
+  <td><%=h attendee.email %></td>
+  <td><%= link_to('キャンセル', url_for(:action => 'destroy', :id => attendee),
+	:confirm => 'Are you sure?', :method => :delete) -%></td>
+</tr>
+<%- end -%>
+</table>

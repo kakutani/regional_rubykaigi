@@ -1,0 +1,108 @@
+@charset "utf-8"; /* -*- coding: utf-8 -*- */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #efefef;
+	font-family: 'ヒラギノ丸ゴ Pro W4','Hiragino Maru Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #222222;
+}
+
+#wrapper {
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 0 2px 0px 2px;
+	width: 90%;
+	margin: 0 auto;
+	padding: 10px 0;
+	background-color: #fff;
+}
+
+#container {
+	padding: 10px;
+}
+
+
+
+/* from scaffold.css --> */
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/* <-- scaffold.css */
+
+h2 {
+    font-family : "HiraKakuPro-W8", "ヒラギノ角ゴ Pro W8",
+    Thahoma, Verdana, Arial, sans-serif;
+	margin: 0 0 10px 0;
+	font-size: 26px;
+	font-weight: bold;
+	color: #000;
+}
+
+h3 {
+	margin: 5px 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+h5,h6 {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+
+ul {
+	margin: 5px 0 5px 1em;
+}
+
+hr {
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 1px;
+}
