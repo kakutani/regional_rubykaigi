@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def fetch_event
     @event = Event.find_by_name(params[:name])
+    @page_title = @event.title
   end
 
   def check_registration_enabled
@@ -20,7 +21,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @page_title = @event.title
   end
 
   def registration

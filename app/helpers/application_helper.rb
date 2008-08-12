@@ -3,8 +3,8 @@ require 'hiki_doc'
 module ApplicationHelper
   def page_title
     global_title  = "Regional RubyKaigi"
-    return global_title unless @title
-    "#{@title} - #{global_title}"
+    return global_title unless @page_title
+    "#{@page_title} - #{global_title}"
   end
 
   def render_hiki(text)
