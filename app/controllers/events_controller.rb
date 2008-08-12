@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class EventsController < ApplicationController
-  before_filter :fetch_event
+  before_filter :fetch_event, :except => [:index]
   before_filter :check_registration_enabled, :except => [:index, :show]
 
   def fetch_event
