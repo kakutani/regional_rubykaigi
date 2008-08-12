@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: regional 0.1.0\n"
-"POT-Creation-Date: 2008-08-12 15:23+0900\n"
+"POT-Creation-Date: 2008-08-12 20:29+0900\n"
 "PO-Revision-Date: 2008-08-12 15:50+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,4 +94,8 @@ msgstr ""
 
 #: app/models/event.rb:-
 msgid "Event|Official tag"
+msgstr ""
+
+#: app/models/event.rb:-
+msgid "Event|Notify email enabled"
 msgstr ""
