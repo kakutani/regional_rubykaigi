@@ -1,11 +1,5 @@
 <h2>参加登録完了: <%= @event.title %></h2>
 
-<table>
-<tr><td>お名前</td><td><%=h @attendee.name %></td></tr>
-<tr><td>E-mail</td><td><%=h @attendee.email %></td></tr>
-<tr><td>コメント</td><td><%= @attendee.comment %></td></tr>
-</table>
-
 <div class="backto">
 <%= link_to h(@event.title), url_for(:name => @event.name, :action => 'show') %>への登録が完了しました。
 </div>
