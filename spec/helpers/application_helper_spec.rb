@@ -10,7 +10,7 @@ describe ApplicationHelper, "#page_title" do
 
   describe 'w/ page title' do
     before do
-      @title = "PageTitle"
+      @page_title = "PageTitle"
     end
     it "should have page title and site name" do
       page_title.should == "PageTitle - Regional RubyKaigi"
