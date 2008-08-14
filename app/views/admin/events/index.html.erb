@@ -7,12 +7,16 @@
   </tr>
 
 <% for event in @events %>
-  <tr>
-    <td><%= link_to h(event.title), edit_admin_event_path(event) %></td>
-    <td><%= link_to 'Destroy', {:action => 'destroy', :id => event}, :confirm => 'Are you sure?', :method => :delete %></td>
+  <tr style="vertical-align:bottom">
+	<td>
+	  <span style="font-size:18px;"><%= h(event.title) %></span><br />
+	  <div style="text-align:right">
+		<%= link_to  '編集', edit_admin_event_path(event) %>&nbsp;<%= link_to '<strong>削除</strong>', {:action => 'destroy', :id => event}, :confirm => 'Are you sure?', :method => :delete %>
+	  </div>
+	</td>
 	<td><%= link_to '参加登録者一覧', admin_event_attendees_path(event) %></td>
+	<td><%= link_to '公開ページ', event_path(:name => event.name) %>
+  </tr>
   </tr>
 <% end %>
 </table>
-
-<br />

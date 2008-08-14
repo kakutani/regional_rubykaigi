@@ -9,14 +9,22 @@
   <title><%=h page_title %></title>
 </head>
 <body>
-  <div style="background:#000"><div style="width:90%;margin:0 auto;"><span style="color:#c00;font-weight:bold;">Regional RubyKaigi</span></div></div>
+  <div style="background:#000">
+	<div style="width:90%;margin:0 auto;">
+	  <%= link_to 'Regional RubyKaigi', root_path, :class => 'regional_rubykaigi' %>
+    </div>
+  </div>
   <div id="wrapper">
 	<div id="container">
   <%= render :partial => "shared/flash", :locals => { :flash => flash } %>
   <%= yield %>
 	</div>
   </div>
-  <div style="background:#000"><div style="width:90%;margin:0 auto;text-align:right;"><span style="color:#c00;font-weight:bold;">Regional RubyKaigi</span></div></div>
+  <div style="background:#000">
+	<div style="width:90%;margin:0 auto;text-align:right;">
+	  <%= link_to 'Regional RubyKaigi', root_path, :class => 'regional_rubykaigi' %>
+    </div>
+  </div>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

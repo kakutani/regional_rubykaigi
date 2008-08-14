@@ -106,3 +106,9 @@ hr {
 	border-color: #ccc;
 	border-width: 1px;
 }
+
+a.regional_rubykaigi, a.regional_rubykaigi:visited {
+	color:#c00;
+	font-weight:bold;
+	text-decoration: none;
+}
