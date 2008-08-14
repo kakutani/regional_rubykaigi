@@ -1,0 +1,16 @@
+--- !ditz.rubyforge.org,2008-03-06/project
+name: regional.rubykaigi.org
+version: "0.4"
+components:
+- !ditz.rubyforge.org,2008-03-06/component
+  name: regional
+releases:
+- !ditz.rubyforge.org,2008-03-06/release
+  name: sapporo01
+  status: :unreleased
+  release_time:
+  log_events:
+  - - 2008-08-14 01:11:15.502109 Z
+    - KAKUTANI Shintaro <shintaro@kakutani.com>
+    - created
+    - "\xE6\x9C\xAD\xE5\xB9\x8CRuby\xE4\xBC\x9A\xE8\xAD\xB001."
