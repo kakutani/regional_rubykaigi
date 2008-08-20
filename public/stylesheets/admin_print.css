@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+body {
+	font-size: 12pt;
+	color: #000;
+	background-color: #fff;
+}
+
+a:link,
+a:visited {
+	text-decoration: underline;
+	color: #000;
+}
+
+img {
+	border: 0;
+}
+
+table,th,td {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table {
+	width: 100%;
+	margin: 0;
+	padding: 5px;
+	border: 1px solid #333;
+}
+
+table th,table td {
+	padding: 3px;
+	font-size: 90%;
+}
+
+table th {
+	border-right: 1px solid #333;
+	border-bottom: 1px solid #333;
+}
+
+table td {
+	border: 1px dotted #333;
+}
+
+div#footer {
+	display:none;
+}
+
+.command {
+	display: none;
+}

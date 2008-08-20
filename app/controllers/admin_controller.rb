@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   before_filter :authentication
+  layout "admin"
 
   private
   def authentication
