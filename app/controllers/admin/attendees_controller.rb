@@ -1,4 +1,4 @@
-class Admin::AttendeesController < ApplicationController
+class Admin::AttendeesController < AdminController
   before_filter :fetch_event_with_attendees
 
   def fetch_event_with_attendees
