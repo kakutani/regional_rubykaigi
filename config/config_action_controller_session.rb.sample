@@ -1,0 +1,4 @@
+config.action_controller.session = {
+  :session_key => '_regional_session',
+  :secret      => 'YOUR SECRET STRING'
+}

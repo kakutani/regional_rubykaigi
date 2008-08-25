@@ -1,11 +1,14 @@
 class AdminController < ApplicationController
-  before_filter :authentication
+  before_filter :login_required
+  before_filter :admin_required
+
   layout "admin"
 
   private
-  def authentication
-    authenticate_or_request_with_http_basic do |user, pass|
-      user == 'regional2008' && pass == 'rubykaigi'
+  def admin_required
+    unless current_user && current_user.admin?
+      @message = '403 Forbidden'
+      render :template => "shared/error.html.erb", :status => 403
     end
   end
 

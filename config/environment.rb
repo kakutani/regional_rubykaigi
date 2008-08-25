@@ -10,6 +10,13 @@ RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+# Application specific configurations
+app_configs = [
+  APP_CONFIG = Struct.new(:url, :admin_email).new,
+]
+
+
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -47,10 +54,22 @@ Rails::Initializer.run do |config|
   # If you change this key, all old sessions will become invalid!
   # Make sure the secret is at least 30 characters and all random,
   # no regular words or you'll be exposed to dictionary attacks.
-  config.action_controller.session = {
-    :session_key => '_regional_session',
-    :secret      => '5c5cf01b75fad0da0729dc4deeb0862f'
-  }
+  begin
+    extract_session_config_filename = "config_action_controller_session.rb"
+    instance_eval(File.read(File.expand_path(extract_session_config_filename, File.dirname(__FILE__)).untaint))
+  rescue MissingSourceFile
+    $stderr.write(<<-EOS)
+ERROR!!! -- You should create #{extract_session_config_filename}, and describe config.action_controller.session like below:
+------------------------------------------------------------------------------
+config.action_controller.session = {
+  :session_key => '_regional_session',
+  :secret      => 'some secrete string'
+}
+------------------------------------------------------------------------------
+(config_action_controller_session.rb.sample is on RAILS_ROOT/confog dir.)
+    EOS
+    exit 2
+  end
 
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
@@ -64,4 +83,7 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+  config.active_record.observers = :user_observer
 end
+
+app_configs.each(&:freeze) if RAILS_ENV == "production"

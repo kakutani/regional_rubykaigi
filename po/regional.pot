@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: regional 0.1.0\n"
-"POT-Creation-Date: 2008-08-12 20:29+0900\n"
-"PO-Revision-Date: 2008-08-12 15:23+0900\n"
+"POT-Creation-Date: 2008-08-24 18:18+0900\n"
+"PO-Revision-Date: 2008-08-24 18:14+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -98,4 +98,28 @@ msgstr ""
 
 #: app/models/event.rb:-
 msgid "Event|Notify email enabled"
+msgstr ""
+
+#: app/models/user_mailer.rb:4
+msgid "Please activate your new account"
+msgstr ""
+
+#: app/models/user_mailer.rb:12
+msgid "Your account has been activated!"
+msgstr ""
+
+#: app/views/user_mailer/signup_notification.erb:1
+msgid "Your account has been created."
+msgstr ""
+
+#: app/views/user_mailer/signup_notification.erb:3
+msgid "Username"
+msgstr ""
+
+#: app/views/user_mailer/signup_notification.erb:4
+msgid "Password"
+msgstr ""
+
+#: app/views/user_mailer/signup_notification.erb:6
+msgid "Visit this url to activate your account"
 msgstr ""

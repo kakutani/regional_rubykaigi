@@ -17,4 +17,5 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.delivery_method = :sendmail
 
+# FIXME integrate into site_config.rb
 ::MAIL_CONF = {:bcc => "shintaro.kakutani@gmail.com"}
