@@ -38,7 +38,7 @@ namespace :deploy do
   task :after_update_code do
     setup_shared("db", "production.sqlite3")
     setup_shared_config("config_action_controller_session.rb")
-    setup_shared_config("initializers/sitekeys.rb")
+    setup_shared_config("initializers/site_keys.rb")
   end
 
   desc "resart for our application"
