@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password").
   # filter_parameter_logging :password
 
-  GetText.locale = "ja"
+  ::GetText.locale = "ja"
   init_gettext 'regional'
 end
