@@ -6,6 +6,15 @@ require File.dirname(__FILE__) + '/../spec_helper'
 include AuthenticatedTestHelper
 
 describe User do
+  describe "#create w/ hash" do
+    before do
+      @user = User.create(:login => 'kaktuani', :identity_url => 'http://kakutani.com/',
+        :admin => true)
+    end
+
+    it { @user.should be_admin }
+  end
+
 =begin
   fixtures :users
 
