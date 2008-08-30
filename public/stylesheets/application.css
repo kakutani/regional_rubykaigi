@@ -34,10 +34,12 @@ body {
 	right: 0;
 	background-color: #000;
 	color: #fff;
+	font-size: 80%;
 }
 
 #user-bar a {
-	color: #00f;
+	color: #c0c0c0;
+	text-decoration: none;
 }
 
 
