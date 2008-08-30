@@ -27,6 +27,18 @@ body {
 	padding: 10px;
 }
 
+#user-bar {
+	z-index: 10000;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #000;
+	color: #fff;
+}
+
+#user-bar a {
+	color: #00f;
+}
 
 
 /* from scaffold.css --> */

@@ -86,7 +86,6 @@ config.action_controller.session = {
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
-  config.active_record.observers = :user_observer
 end
 
 app_configs.each(&:freeze) if RAILS_ENV == "production"

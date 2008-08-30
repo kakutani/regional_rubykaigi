@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   verify :method => :post, :only => :register, :redirect_to => {:action => "index"}
   def index
 #    @events = Event.find(:all, :order => "scheduled_on DESC")
-    redirect_to :action => 'show', :name => 'tokyo01'
+    redirect_to :controller => 'events', :action => 'show', :name => 'tokyo01'
   end
 
   def show
