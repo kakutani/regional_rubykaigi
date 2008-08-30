@@ -1,0 +1,12 @@
+URLとして使う名前: <%= form.text_field :name %><br />
+(例 http://regional.rubykaigi.org/<strong>tokyo01</strong>)<br />
+イベントのタイトル: <%= form.text_field :title %><br />
+イベントの開催日: <%= form.date_select :scheduled_on %><br />
+連絡用メールアドレス: <%= form.text_field :contact_email %><br />
+公式タグ: <%= form.text_field :official_tag %><br />
+ウェブページを公開する日: <%= form.datetime_select :publish_at %><br />
+参加登録の定員: <%= form.text_field :capacity %><br />
+登録されたらメールで通知する: <%= form.check_box :notify_email_enabled %><br />
+無効: <%= form.check_box :force_disabled %><br />
+イベントの説明(Hikidoc):<br />
+<%= form.text_area :desc, :cols => 75, :rows => 20 %><br />

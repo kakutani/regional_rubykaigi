@@ -2,14 +2,7 @@
 
 <% form_for(@event, :url => {:action => "create"}) do |f| %>
   <%= f.error_messages %>
-  URLとして使う名前: <%= f.text_field :name %><br />
-  イベントのタイトル: <%= f.text_field :title %><br />
-  イベントの説明(Hikidoc):<br />
-  <%= f.text_area :desc %><br />
-  公開日: <%= f.datetime_select :publish_at %><br />
-  登録定員: <%= f.text_field :capacity %><br />
-  無効: <%= f.check_box :force_disabled %><br />
-
+  <%= render :partial => "form",:locals => {:form => f} %>
   <p>
     <%= f.submit "Create" %>
   </p>

@@ -1,6 +1,17 @@
-<h2>開催の一覧</h2>
+<h1>地域Ruby会議(Regional RubyKaigi)</h1>
+<h2>これから開催される地域Ruby会議</h2>
 <ul>
-<% @events.each do |event| -%>
+<% unless @upcomings.blank? -%>
+  <% @upcomings.each do |event| -%>
+    <li><%= link_to h(event.title), url_for(:action => 'show', :name => event.name) %>(<%=h event.scheduled_on.to_s %>)</li>
+  <% end -%>
+<% else -%>
+  <li>開催予定の地域Ruby会議はありません</li>
+<% end -%>
+</ul>
+
+<h2>過去の地域Ruby会議</h2><ul>
+<% @archives.each do |event| -%>
 <li><%= link_to h(event.title), url_for(:action => 'show', :name => event.name) %>(<%=h event.scheduled_on.to_s %>)</li>
 <% end -%>
 </ul>

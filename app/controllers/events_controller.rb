@@ -1,23 +1,13 @@
 # -*- coding: utf-8 -*-
 class EventsController < ApplicationController
   before_filter :fetch_event, :except => [:index]
+  before_filter :check_published, :except => [:index]
   before_filter :check_registration_enabled, :except => [:index, :show]
-
-  def fetch_event
-    @event = Event.find_by_name(params[:name])
-    @page_title = @event.title
-  end
-
-  def check_registration_enabled
-    unless @event.registration_enabled?
-      redirect_to :action => 'show', :name => @event.name
-    end
-  end
 
   verify :method => :post, :only => :register, :redirect_to => {:action => "index"}
   def index
-#    @events = Event.find(:all, :order => "scheduled_on DESC")
-    redirect_to :controller => 'events', :action => 'show', :name => 'tokyo01'
+    @upcomings = Event.upcomings
+    @archives = Event.archives
   end
 
   def show
@@ -38,6 +28,24 @@ class EventsController < ApplicationController
       redirect_to :action => 'done', :name => 'tokyo01'
     else
       render :action => 'registration'
+    end
+  end
+
+  private
+  def fetch_event
+    @event = Event.find_by_name(params[:name])
+    @page_title = @event.title
+  end
+
+  def check_registration_enabled
+    unless @event.registration_enabled?
+      redirect_to :action => 'show', :name => @event.name
+    end
+  end
+
+  def check_published
+    unless @event.published?
+      redirect_to :action => 'index'
     end
   end
 end
