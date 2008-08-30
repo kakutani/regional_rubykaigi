@@ -1,0 +1,26 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: !binary |
+  6Kiq5ZWP6ICF44Go44GX44Gm44CB5LuW44Gu6ZaL5YKs44Kk44OZ44Oz44OI
+  44KC5ZCr44KB44Gm5LiA6Kan44Gn44GN44KL44OI44OD44OX44Oa44O844K4
+  44KS6KaL44Gf44GE
+
+desc: "\xE6\x9D\xB1\xE4\xBA\xAC\xE3\x81\xAB\xE3\x82\x82\xE5\x9C\xB0\xE5\x9F\x9FRuby\xE4\xBC\x9A\xE8\xAD\xB0\xE3\x81\xAF\xE9\x96\x8B\xE5\x82\xAC\xE3\x81\x95\xE3\x82\x8C\xE3\x82\x8B\xE4\xBA\x88\xE5\xAE\x9A\xE3\x81\xA0\xE3\x81\x8B\xE3\x82\x89\xE3\x80\x82"
+type: :feature
+component: regional
+release: sapporo01
+reporter: KAKUTANI Shintaro <shintaro@kakutani.com>
+status: :closed
+disposition: :reorg
+creation_time: 2008-08-30 06:15:31.292661 Z
+references: []
+
+id: 92c62813a4ad7aba0ac1b342753af6b3db90d258
+log_events: 
+- - 2008-08-30 06:15:34.724785 Z
+  - KAKUTANI Shintaro <shintaro@kakutani.com>
+  - created
+  - ""
+- - 2008-08-30 08:59:31.096335 Z
+  - KAKUTANI Shintaro <shintaro@kakutani.com>
+  - closed with disposition reorg
+  - dup {issue 92c62813a4ad7aba0ac1b342753af6b3db90d258}

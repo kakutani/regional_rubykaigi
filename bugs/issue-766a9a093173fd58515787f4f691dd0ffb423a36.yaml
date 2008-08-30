@@ -1,0 +1,24 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: !binary |
+  44Kk44OZ44Oz44OI44Gu57eo6ZuG55S76Z2i44Gu5YWl5Yqb6aCF55uu44KS
+  44OQ44Oq44OH44O844K344On44Oz44GX44Gm5qyy44GX44GE
+
+desc: !binary |
+  44Kk44OZ44Oz44OI44Gu6KGo56S655S76Z2i44Gn6JC944Gh44Gh44KD44GG
+  44GL44KJ
+
+type: :feature
+component: regional
+release: sapporo01
+reporter: KAKUTANI Shintaro <shintaro@kakutani.com>
+status: :unstarted
+disposition: 
+creation_time: 2008-08-30 06:16:45.948594 Z
+references: []
+
+id: 766a9a093173fd58515787f4f691dd0ffb423a36
+log_events: 
+- - 2008-08-30 06:16:47.645206 Z
+  - KAKUTANI Shintaro <shintaro@kakutani.com>
+  - created
+  - ""

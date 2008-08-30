@@ -5,8 +5,8 @@ type: :feature
 component: regional
 release: release_to_github
 reporter: KAKUTANI Shintaro <shintaro@kakutani.com>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2008-08-24 15:17:21.671154 Z
 references: []
 
@@ -20,3 +20,7 @@ log_events:
   - KAKUTANI Shintaro <shintaro@kakutani.com>
   - assigned to release release_to_github from unassigned
   - ""
+- - 2008-08-30 08:58:40.408723 Z
+  - KAKUTANI Shintaro <shintaro@kakutani.com>
+  - closed with disposition fixed
+  - implemented.
