@@ -44,7 +44,9 @@ class EventsController < ApplicationController
   end
 
   def check_published
+    return true if logged_in_as_admin?
     unless @event.published?
+      # FIXME もうちょっとユーザフレンドリーに
       redirect_to :action => 'index'
     end
   end

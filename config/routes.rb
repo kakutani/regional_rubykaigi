@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
 
   map.namespace(:admin) do |admin|
+    admin.resources :events, :member => { :preview => :put }
     admin.resources :events do |event|
       event.resources :attendees
     end

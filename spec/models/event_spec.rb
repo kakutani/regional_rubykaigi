@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Event do
@@ -6,7 +7,7 @@ describe Event do
   end
 
   it "should be valid" do
-    @event.should be_valid
+    @event.should_not be_valid
   end
 end
 
@@ -96,19 +97,29 @@ describe Event, "for toppage" do
   before(:all) do
     Event.delete_all
 
-    Event.create(:name => 'rubykaigi2008', :scheduled_on => Date.parse("2008-06-20"),
+    Event.create(:name => 'rubykaigi2008',
+      :title => 'RubyKaigi2008', :capacity => 800,
+      :scheduled_on => Date.parse("2008-06-20"),
       :publish_at => DateTime.parse("2008-03-01 12:00:00"))
 
-    Event.create(:name => 'tokyo01', :scheduled_on => Date.parse("2008-08-20"),
+    Event.create(:name => 'tokyo01',
+      :title => '東京Ruby会議01', :capacity => 100,
+      :scheduled_on => Date.parse("2008-08-20"),
       :publish_at => DateTime.parse("2008-08-13 12:00:00"))
 
-    Event.create(:name => 'sapporo01', :scheduled_on => Date.parse("2008-10-25"),
+    Event.create(:name => 'sapporo01',
+      :title => '札幌Ruby会議01', :capacity => 100,
+      :scheduled_on => Date.parse("2008-10-25"),
       :publish_at => DateTime.parse("2008-09-16 12:00:00"))
 
-    Event.create(:name => 'matsue01', :scheduled_on => Date.parse("2008-10-18"),
+    Event.create(:name => 'matsue01',
+      :title => '松江Ruby会議01', :capacity => 100,
+      :scheduled_on => Date.parse("2008-10-18"),
       :publish_at => DateTime.parse("2008-09-10 12:00:00"))
 
-    Event.create(:name => 'kyushu01', :scheduled_on => Date.parse("2008-12-14"),
+    Event.create(:name => 'kyushu01',
+      :title => '九州Ruby会議01', :capacity => 80,
+      :scheduled_on => Date.parse("2008-12-14"),
       :publish_at => DateTime.parse("2008-11-30 12:00:00"))
   end
 
@@ -124,9 +135,10 @@ describe Event, "for toppage" do
       @upcomings = Event.upcomings
     end
 
-    it { @upcomings.size.should == 2 }
+    it { @upcomings.size.should == 3 }
     it { @upcomings[0].name == "matsue01" }
     it { @upcomings[1].name == "sapporo01" }
+    it { @upcomings[1].name == "kyushu01" }
   end
 
   describe "archives" do

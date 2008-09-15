@@ -8,11 +8,10 @@ include AuthenticatedTestHelper
 describe User do
   describe "#create w/ hash" do
     before do
-      @user = User.create(:login => 'kaktuani', :identity_url => 'http://kakutani.com/',
-        :admin => true)
+      @user = User.create(:login => 'kaktuani', :identity_url => 'http://kakutani.com/')
     end
 
-    it { @user.should be_admin }
+    it { @user.should_not be_admin }
   end
 
 =begin

@@ -1,5 +1,5 @@
 div.event {
-	padding-left: 20px;
+	padding: 10px 10px 10px 20px;
 }
 
 div.event_desc {
@@ -46,4 +46,45 @@ span.closed {
 span.official_tag {
 	font-size: 18px;
 	color: #333;
+}
+
+div.admin_notice {
+	padding: 3px;
+	border: 2px solid #f00;
+	background: #ffcccc;
+	color: #f00;
+	font-size: 18px;
+	text-align: center;
+}
+
+
+h1#welcome {
+	text-align: right;
+	background: #fff;
+	padding: 3px 10px;
+	color: #666;
+}
+
+div.event_index {
+	padding: 10px;
+}
+
+div.event_index h2 {
+	font-size: 18px;
+	margin-top: 10px;
+	padding: 3px;
+	color: #666;
+}
+
+div.event_index ul {
+	margin-left: 2em;
+}
+
+div.event_index li {
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+
+div.event_index li span.event_name {
+	font-size: 20px;
 }

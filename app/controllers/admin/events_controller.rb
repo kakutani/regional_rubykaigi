@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Admin::EventsController < AdminController
   def index
     @events = Event.find(:all)
@@ -60,5 +61,10 @@ class Admin::EventsController < AdminController
     respond_to do |format|
       format.html { redirect_to(:action => 'index') }
     end
+  end
+
+  def preview
+    @event = Event.new(params[:event])
+    render :partial => "events/event_desc", :locals => { :event => @event }
   end
 end

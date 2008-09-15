@@ -94,7 +94,7 @@ module AuthenticatedSystem
     # Inclusion hook to make #current_user and #logged_in?
     # available as ActionView helper methods.
     def self.included(base)
-      base.send :helper_method, :current_user, :logged_in?, :authorized? if base.respond_to? :helper_method
+      base.send :helper_method, :current_user, :logged_in?, :authorized?, :logged_in_as_admin? if base.respond_to? :helper_method
     end
 
     #
@@ -112,7 +112,7 @@ module AuthenticatedSystem
         self.current_user = User.authenticate(login, password)
       end
     end
-    
+
     #
     # Logout
     #
@@ -147,7 +147,7 @@ module AuthenticatedSystem
       logout_keeping_session!
       reset_session
     end
-    
+
     #
     # Remember_me Tokens
     #
@@ -159,29 +159,33 @@ module AuthenticatedSystem
 
     def valid_remember_cookie?
       return nil unless @current_user
-      (@current_user.remember_token?) && 
+      (@current_user.remember_token?) &&
         (cookies[:auth_token] == @current_user.remember_token)
     end
-    
+
     # Refresh the cookie auth token if it exists, create it otherwise
     def handle_remember_cookie! new_cookie_flag
       return unless @current_user
       case
       when valid_remember_cookie? then @current_user.refresh_token # keeping same expiry date
-      when new_cookie_flag        then @current_user.remember_me 
+      when new_cookie_flag        then @current_user.remember_me
       else                             @current_user.forget_me
       end
       send_remember_cookie!
     end
-  
+
     def kill_remember_cookie!
       cookies.delete :auth_token
     end
-    
+
     def send_remember_cookie!
       cookies[:auth_token] = {
         :value   => @current_user.remember_token,
         :expires => @current_user.remember_token_expires_at }
     end
 
+    # Added for regional.rubykaigi.org
+    def logged_in_as_admin?
+      current_user && current_user.admin?
+    end
 end
