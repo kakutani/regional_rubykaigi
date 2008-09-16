@@ -87,4 +87,5 @@ div.event_index li {
 
 div.event_index li span.event_name {
 	font-size: 20px;
+	font-weight: bold;
 }
