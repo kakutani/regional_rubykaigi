@@ -1,12 +1,28 @@
 URLとして使う名前: <%= form.text_field :name %><br />
 (例 http://regional.rubykaigi.org/<strong>tokyo01</strong>)<br />
 イベントのタイトル: <%= form.text_field :title %><br />
-イベントの開催日: <%= form.date_select :scheduled_on %><br />
+イベントの開催日: <%= form.text_field :scheduled_on %><br />
 連絡用メールアドレス: <%= form.text_field :contact_email %><br />
 公式タグ: <%= form.text_field :official_tag %><br />
-ウェブページを公開する日: <%= form.datetime_select :publish_at %><br />
+ウェブページを公開する日時: <%= form.datetime_select :publish_at, {:start_year => Date.today.year, :use_month_numbers => true, :minute_step => 15} %> <br />
 参加登録の定員: <%= form.text_field :capacity %><br />
 登録されたらメールで通知する: <%= form.check_box :notify_email_enabled %><br />
 無効: <%= form.check_box :force_disabled %><br />
 イベントの説明(Hikidoc):<br />
 <%= form.text_area :desc, :cols => 75, :rows => 20 %><br />
+<% content_for :css do -%>
+  <%= stylesheet_link_tag "ui.datepicker" %>
+<% end -%>
+<% content_for :javascript do -%>
+  <%= javascript_include_tag "ui.datepicker" %>
+<% end -%>
+<script type="text/javascript">
+  $(function(){
+    function initDatePicker(id){
+      $(id).datepicker("setDate",
+      $.datepicker.parseDate('yy-mm-dd', $(id).val()));
+      $(id).datepicker({dateFormat: 'yy-mm-dd'})
+    };
+    initDatePicker("#event_scheduled_on");
+  });
+</script>
