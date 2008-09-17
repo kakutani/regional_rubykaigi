@@ -16,10 +16,16 @@ releases:
     - "\xE6\x9C\xAD\xE5\xB9\x8CRuby\xE4\xBC\x9A\xE8\xAD\xB001."
 - !ditz.rubyforge.org,2008-03-06/release 
   name: release_to_github
-  status: :unreleased
-  release_time: 
+  status: :released
+  release_time: 2008-09-17 06:57:37.706321 Z
   log_events: 
   - - 2008-08-24 15:19:16.135492 Z
     - KAKUTANI Shintaro <shintaro@kakutani.com>
     - created
     - "github\xE3\x81\xA7\xE3\x82\xBD\xE3\x83\xBC\xE3\x82\xB9\xE3\x82\xB3\xE3\x83\xBC\xE3\x83\x89\xE3\x82\x92\xE5\x85\xB1\xE6\x9C\x89\xE3\x81\x97\xE3\x81\x9F\xE3\x81\x84"
+  - - 2008-09-17 06:57:37.706335 Z
+    - KAKUTANI Shintaro <shintaro@kakutani.com>
+    - released
+    - !binary |
+      44GK44KP44Gj44Gm44Gf
+

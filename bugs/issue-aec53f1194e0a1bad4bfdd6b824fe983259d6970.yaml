@@ -1,0 +1,22 @@
+--- !ditz.rubyforge.org,2008-03-06/issue 
+title: "\xE3\x82\xA4\xE3\x83\xA6\xE3\x83\xBC\xE3\x82\xB6\xE3\x81\xA8\xE3\x81\x97\xE3\x81\xA6\xE3\x80\x81\xE5\x80\x8B\xE5\x88\xA5\xE3\x81\xAE\xE3\x82\xBB\xE3\x83\x83\xE3\x82\xB7\xE3\x83\xA7\xE3\x83\xB3\xE3\x81\xABpermalink\xE3\x81\x8C\xE6\xAC\xB2\xE3\x81\x97\xE3\x81\x84"
+desc: !binary |
+  6Kit6KiI44GM44Gq44KE44G+44GX44GE44Gq44GC44CB44Go5oCd44GG44Gu
+  44Gg44GR44Gp44CB44Gp44GE44Ga44KM44Gr44GX44Gm44KC54++54q244Gv
+  5YWl5Yqb44GM44KB44KT44Gp44GP44GV44GE
+
+type: :feature
+component: regional
+release: 
+reporter: KAKUTANI Shintaro <shintaro@kakutani.com>
+status: :unstarted
+disposition: 
+creation_time: 2008-09-17 07:01:38.633547 Z
+references: []
+
+id: aec53f1194e0a1bad4bfdd6b824fe983259d6970
+log_events: 
+- - 2008-09-17 07:01:40.498190 Z
+  - KAKUTANI Shintaro <shintaro@kakutani.com>
+  - created
+  - ""

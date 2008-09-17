@@ -11,8 +11,8 @@ type: :feature
 component: regional
 release: sapporo01
 reporter: KAKUTANI Shintaro <shintaro@kakutani.com>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :reorg
 creation_time: 2008-08-23 16:55:42.051233 Z
 references: []
 
@@ -26,3 +26,7 @@ log_events:
   - KAKUTANI Shintaro <shintaro@kakutani.com>
   - assigned to release sapporo01 from unassigned
   - ""
+- - 2008-09-17 06:58:05.216009 Z
+  - KAKUTANI Shintaro <shintaro@kakutani.com>
+  - closed with disposition reorg
+  - "dup: {issue 19455b297c284e0dce7afbb3bc5841925e2ed0a3}"

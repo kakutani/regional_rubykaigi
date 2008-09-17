@@ -8,8 +8,8 @@ type: :feature
 component: regional
 release: sapporo01
 reporter: KAKUTANI Shintaro <shintaro@kakutani.com>
-status: :unstarted
-disposition: 
+status: :closed
+disposition: :fixed
 creation_time: 2008-08-30 06:17:49.668770 Z
 references: []
 
@@ -19,3 +19,9 @@ log_events:
   - KAKUTANI Shintaro <shintaro@kakutani.com>
   - created
   - ""
+- - 2008-09-17 06:58:34.271911 Z
+  - KAKUTANI Shintaro <shintaro@kakutani.com>
+  - closed with disposition fixed
+  - !binary |
+    44Go44KK44GC44GI44Ga5a6f6KOF44GX44Gf
+
