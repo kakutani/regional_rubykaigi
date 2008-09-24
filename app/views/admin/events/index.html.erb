@@ -15,7 +15,7 @@
 	  </div>
 	</td>
 	<td><%= link_to '参加登録者一覧', admin_event_attendees_path(event) %></td>
-	<td><%= link_to '公開ページ', url_for(:controller => 'events', :action => 'show', :name => event.name) %>
+	<td><%= link_to '公開ページ', event_path(:name => event.name) %>
   </tr>
   </tr>
 <% end %>

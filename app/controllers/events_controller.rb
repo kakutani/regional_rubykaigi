@@ -25,7 +25,7 @@ class EventsController < ApplicationController
       if @event.notify_email_enabled?
         Registration.deliver_message(@attendee)
       end
-      redirect_to :action => 'done', :name => 'tokyo01'
+      redirect_to :action => 'done', :name => @event.name
     else
       render :action => 'registration'
     end
