@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 set :application, "regional"
 set :repository,  "git://github.com/kakutani/regional_rubykaigi.git"
 set :branch, "master"
@@ -34,6 +35,15 @@ def setup_shared_config(path)
   setup_shared("config", path)
 end
 
+require 'net/http'
+require 'uri'
+def notify_irc_cat
+  task_name = ARGV.shift.chomp
+  message = "[regional.rubykaigi.org] cap #{task_name} => done"
+  Net::HTTP.version_1_1
+  Net::HTTP.get_print 'alpha.kakutani.com', "/send/#{URI.escape(message)}", 3489
+end
+
 namespace :deploy do
   task :after_update_code do
     setup_shared("db", "production.sqlite3")
@@ -45,5 +55,9 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do |t|
     stop
     start
+  end
+
+  task :after_restart do
+    notify_irc_cat
   end
 end
