@@ -5,6 +5,9 @@
 	,<%= link_to 'Admin Menu', :controller => 'admin' %>
   </div>
 <% else -%>
-  <div id="user-bar-greeting"><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %></div>
+  <div id="user-bar-greeting"><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;', :id => 'link_to_login' %></div>
+  <div id="login_dialog" style="display:none;">
+    <%= render :partial => 'sessions/new' %>
+  </div>
 <% end -%>
 </div>
