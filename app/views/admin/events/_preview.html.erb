@@ -1,0 +1,6 @@
+<%= link_to_remote('Preview',
+  :url => {:controller => "admin/events", :action => "preview", :id => @event.id},
+  :update => 'preview',
+  :submit => "edit_event",
+  :method => :put) %>
+<div id="preview" style="padding:1em;border:1px solid #ccc;"></div>

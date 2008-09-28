@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :identity_url
 
+  def after_initialize
+    self.admin = false
+  end
+
   # Activates the user in the database.
 #  def activate!
 #    @activated = true

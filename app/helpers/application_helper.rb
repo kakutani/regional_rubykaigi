@@ -11,4 +11,8 @@ module ApplicationHelper
     hikified = HikiDoc.to_html(text, :level => 3, :use_wiki_name => false, :allow_bracket_inline_image => false)
     hikified
   end
+
+  def link_to_hikidoc
+    link_to('HikiDoc', "http://projects.netlab.jp/hikidoc/?TextFormattingRules.ja")
+  end
 end

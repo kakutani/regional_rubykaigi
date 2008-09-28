@@ -28,4 +28,14 @@
 </li>
 <% end -%>
 </ul>
-</div>
+
+<h2>管理者用メニュー</h2>
+<ul>
+<li><%= link_to '地域Ruby会議を新しく開催する', new_admin_event_path %></li>
+</ul>
+<ul>
+<li><%= link_to '地域Ruby会議の管理用メニュー', admin_events_path %></li>
+<li><%= link_to 'ユーザ(というか管理者)の一覧', admin_users_path %></li>
+</ul>
+
+</div><!-- /event_index -->

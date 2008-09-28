@@ -11,6 +11,11 @@
 	<span class="admin_event_edit" style="font-size:60%;font-weight:normal;"><%= link_to  '編集', edit_admin_event_path(@event) %></span>
 	<% end -%>
   </h2>
+  <% if @event.expired? %>
+  <div class="event_was_over">
+  <%= render_hiki(@event.message_of_the_day_after) %>
+  </div>
+  <% end -%>
   <h3>参加登録</h3>
   <%= render_registration_link %>
 

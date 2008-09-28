@@ -1,19 +1,9 @@
 # -*- coding: utf-8 -*-
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe Event do
-  before(:each) do
-    @event = Event.new
-  end
-
-  it "should be valid" do
-    @event.should_not be_valid
-  end
-end
-
 describe Event, "#under_capacity?" do
   before do
-    @event = Event.new(:capacity => 10)
+    @event = Factory.build(:tokyo01, :capacity => 10)
   end
 
   describe "when enabled" do
@@ -35,7 +25,7 @@ end
 
 describe Event, "#expired?" do
   before do
-    @event = Event.new(:scheduled_on => Date.parse("2008-08-01"))
+    @event = Factory.build(:tokyo01, :scheduled_on => Date.parse("2008-08-01"))
   end
 
   describe "when the day before" do
@@ -65,7 +55,7 @@ end
 
 describe Event, "#published?" do
   before do
-    @event = Event.new(:publish_at => DateTime.parse("2008-09-17 12:00:00"))
+    @event = Factory.build(:tokyo01, :publish_at => DateTime.parse("2008-09-17 12:00:00"))
   end
 
   describe "when tha datetime before" do
@@ -95,29 +85,36 @@ end
 
 describe Event, "for toppage" do
   before(:all) do
+    Event.instance_eval do
+      class << self
+        def create_without_validation(options)
+          returning(Event.new(options)){ |e| e.save(false)}
+        end
+      end
+    end
     Event.delete_all
 
-    Event.create(:name => 'rubykaigi2008',
+    Event.create_without_validation(:name => 'rubykaigi2008',
       :title => 'RubyKaigi2008', :capacity => 800,
       :scheduled_on => Date.parse("2008-06-20"),
       :publish_at => DateTime.parse("2008-03-01 12:00:00"))
 
-    Event.create(:name => 'tokyo01',
+    Event.create_without_validation(:name => 'tokyo01',
       :title => '東京Ruby会議01', :capacity => 100,
       :scheduled_on => Date.parse("2008-08-20"),
       :publish_at => DateTime.parse("2008-08-13 12:00:00"))
 
-    Event.create(:name => 'sapporo01',
+    Event.create_without_validation(:name => 'sapporo01',
       :title => '札幌Ruby会議01', :capacity => 100,
       :scheduled_on => Date.parse("2008-10-25"),
       :publish_at => DateTime.parse("2008-09-16 12:00:00"))
 
-    Event.create(:name => 'matsue01',
+    Event.create_without_validation(:name => 'matsue01',
       :title => '松江Ruby会議01', :capacity => 100,
       :scheduled_on => Date.parse("2008-10-18"),
       :publish_at => DateTime.parse("2008-09-10 12:00:00"))
 
-    Event.create(:name => 'kyushu01',
+    Event.create_without_validation(:name => 'kyushu01',
       :title => '九州Ruby会議01', :capacity => 80,
       :scheduled_on => Date.parse("2008-12-14"),
       :publish_at => DateTime.parse("2008-11-30 12:00:00"))

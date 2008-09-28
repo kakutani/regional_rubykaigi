@@ -1,15 +1,29 @@
+<p>
 URLとして使う名前: <%= form.text_field :name %><br />
 (例 http://regional.rubykaigi.org/<strong>tokyo01</strong>)<br />
 イベントのタイトル: <%= form.text_field :title %><br />
-イベントの開催日: <%= form.text_field :scheduled_on %><br />
+イベントの開催日: <%= form.text_field :scheduled_on %>
+</p>
+
+<p>
 連絡用メールアドレス: <%= form.text_field :contact_email %><br />
 公式タグ: <%= form.text_field :official_tag %><br />
+</p>
+
+参加登録の定員: <%= form.text_field :capacity, :size => 5 %>&nbsp; <%= form.check_box :notify_email_enabled %><%=form.label :notify_email_enabled, '&nbsp;登録されたらメールで通知する' %>
+</p>
+<p>
 ウェブページを公開する日時: <%= form.datetime_select :publish_at, {:start_year => Date.today.year, :use_month_numbers => true, :minute_step => 15} %> <br />
-参加登録の定員: <%= form.text_field :capacity %><br />
-登録されたらメールで通知する: <%= form.check_box :notify_email_enabled %><br />
-無効: <%= form.check_box :force_disabled %><br />
-イベントの説明(Hikidoc):<br />
+<%= form.label :force_disabled, '無効:&nbsp;' %><%= form.check_box :force_disabled %>
+</p>
+
+<p>
+イベント開催翌日以降に表示するメッセージ(<%= link_to_hikidoc %>):<br />
+<%= form.text_area :message_of_the_day_after, :cols => 75, :rows => 5 %><br />
+イベントの説明(<%= link_to_hikidoc %>):<br />
 <%= form.text_area :desc, :cols => 75, :rows => 20 %><br />
+</p>
+
 <% content_for :css do -%>
   <%= stylesheet_link_tag "ui.datepicker" %>
 <% end -%>

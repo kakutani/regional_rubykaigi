@@ -12,16 +12,8 @@
 <% end %>
 </div>
 
-<%= link_to_remote('Preview',
-  :url => {:controller => "admin/events", :action => "preview", :id => @event.id},
-  :update => 'preview',
-  :submit => "edit_event",
-  :method => :put) %>
+<%= render :partial => "preview" %>
 
 <div class="backto">
 <%= link_to 'イベント一覧', admin_events_path %>
-</div>
-
-<div id="preview" style="padding:1em;border:1px solid #ccc;">
-
 </div>
