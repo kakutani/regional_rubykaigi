@@ -13,6 +13,7 @@ class Admin::UsersController < AdminController
 
   def create
     @user = User.new(params[:user])
+    @user.admin = params[:user][:admin]
 
     respond_to do |format|
       if @user.save
@@ -26,6 +27,8 @@ class Admin::UsersController < AdminController
 
   def update
     @user = User.find(params[:id])
+    @user.attributes = params[:user]
+    @user.admin = params[:user][:admin] if params[:user][:admin]
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

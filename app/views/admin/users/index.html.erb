@@ -12,7 +12,7 @@
   <tr>
 	<td style="padding: 0 1em;"><%=h user.login %></td>
 	<td><%=h user.identity_url %></td>
-	<td style="padding: 0 1em;"><%= check_box_tag :admin, user.admin?, true, :disabled => true %></td>
+	<td style="padding: 0 1em;"><%= check_box_tag :admin, true, user.admin?, :disabled => true %></td>
 	<td class="command"><%= link_to 'Edit', edit_admin_user_path(user) %>
     <td class="command"><%= link_to 'Destroy', {:action => :destroy, :id => user}, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

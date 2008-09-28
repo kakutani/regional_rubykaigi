@@ -59,7 +59,7 @@ protected
           # TODO user not found case
           # FIXME integrate to note_failed_signin
           flash[:error] = "Couldn't log you in as '#{identity_url}'"
-          logger.warn "Failed login w/ openid for '#{identity_url}' from #{request.remote_ip} at #{Time.now.utc}, message: #{result.message}"
+          logger.warn "User Not Found w/ openid for '#{identity_url}' from #{request.remote_ip} at #{Time.now.utc}, message: #{result.message}"
           @openid_identifier = params[:openid_identifier]
           redirect_back_or_default('/')
         end
