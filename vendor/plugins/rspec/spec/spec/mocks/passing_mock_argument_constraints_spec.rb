@@ -116,9 +116,28 @@ module Spec
       end
         
     end
+
+    describe Methods, "handling block constraints" do
+      it_should_behave_like "mock argument constraints"
+      
+      it "should match arguments against RSpec expectations" do
+        @mock.should_receive(:random_call).with {|arg1, arg2, arr, *rest|
+          arg1.should == 5
+          arg2.should have_at_least(3).characters
+          arg2.should have_at_most(10).characters
+          arr.map {|i| i * 2}.should == [2,4,6]
+          rest.should == [:fee, "fi", 4]
+        }
+        @mock.random_call 5, "hello", [1,2,3], :fee, "fi", 4
+      end
+    end
     
     describe Methods, "handling non-constraint arguments" do
-
+      
+      before(:each) do
+        @mock = Mock.new("test mock")
+      end
+      
       it "should match non special symbol (can be removed when deprecated symbols are removed)" do
         @mock.should_receive(:random_call).with(:some_symbol)
         @mock.random_call(:some_symbol)
@@ -149,11 +168,6 @@ module Spec
         opts = {:a => "a", :b => "b"}
         @mock.should_receive(:random_call).with(:a => "a", :b => "b")
         @mock.random_call(opts)
-      end
-      
-      it "should match against a Matcher" do
-        @mock.should_receive(:msg).with(equal(37))
-        @mock.msg(37)
       end
     end
   end
