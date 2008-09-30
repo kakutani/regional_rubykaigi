@@ -2,7 +2,12 @@
 URLとして使う名前: <%= form.text_field :name %><br />
 (例 http://regional.rubykaigi.org/<strong>tokyo01</strong>)<br />
 イベントのタイトル: <%= form.text_field :title %><br />
-イベントの開催日: <%= form.text_field :scheduled_on %>
+</p>
+<p>
+イベントの会期:<br />
+開始日:<%= form.text_field :start_on %><br />
+終了日:<%= form.text_field :end_on %><br />
+(単日開催の場合は、開始日と終了日を同じ日にしてください)
 </p>
 
 <p>
@@ -10,12 +15,36 @@ URLとして使う名前: <%= form.text_field :name %><br />
 公式タグ: <%= form.text_field :official_tag %><br />
 </p>
 
-参加登録の定員: <%= form.text_field :capacity, :size => 5 %>&nbsp; <%= form.check_box :notify_email_enabled %><%=form.label :notify_email_enabled, '&nbsp;登録されたらメールで通知する' %>
+<p>
+ウェブページを公開する日時: <%= form.datetime_select :publish_at, {:start_year => Date.today.year, :use_month_numbers => true, :minute_step => 15} %><br />
+(ここで指定した日時を過ぎると、トップページからイベント個別のページへのリンクが有効になります)
 </p>
 <p>
-ウェブページを公開する日時: <%= form.datetime_select :publish_at, {:start_year => Date.today.year, :use_month_numbers => true, :minute_step => 15} %> <br />
-<%= form.label :force_disabled, '無効:&nbsp;' %><%= form.check_box :force_disabled %>
+<%= form.label :force_disabled, 'イベントを無効にする:&nbsp;' %><%= form.check_box :force_disabled %><br />
+(このチェックボックスをONにすると、一般の閲覧者からはイベントの存在が見えなくなります)
 </p>
+
+
+<p>申し込み登録の設定:
+
+<fieldset id="register_builtin">
+<legend><%= form.radio_button :use_builtin_registration, true %><label for="event_use_builtin_registration_true">&nbsp;regional.rubykaigi.org提供の登録フォームを利用する</label></legend>
+<p>
+参加登録の定員: <%= form.text_field :capacity, :size => 5 %>&nbsp; <%= form.check_box :notify_email_enabled %><%=form.label :notify_email_enabled, '&nbsp;登録されたらメールで通知する' %>
+</p>
+</fieldset>
+
+</p>
+
+
+<fieldset id="register_external">
+<legend><%= form.radio_button :use_builtin_registration, false %><label for="event_use_builtin_registration_false">外部のサイトなどを利用する</legend>
+<p>
+イベントに登録したいユーザはどうすればよいのか、説明を書いてください。<br />
+例えば、申し込みページのURLとその説明などがふさわしいでしょう(<%= link_to_hikidoc %>):
+<%= form.text_area :register_information, :cols => 75, :rows => 5 %>
+</p>
+</fieldset>
 
 <p>
 イベント開催翌日以降に表示するメッセージ(<%= link_to_hikidoc %>):<br />
@@ -37,6 +66,7 @@ URLとして使う名前: <%= form.text_field :name %><br />
       $.datepicker.parseDate('yy-mm-dd', $(id).val()));
       $(id).datepicker({dateFormat: 'yy-mm-dd'})
     };
-    initDatePicker("#event_scheduled_on");
+    initDatePicker("#event_start_on");
+    initDatePicker("#event_end_on");
   });
 </script>

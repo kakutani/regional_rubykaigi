@@ -25,7 +25,7 @@ end
 
 describe Event, "#expired?" do
   before do
-    @event = Factory.build(:tokyo01, :scheduled_on => Date.parse("2008-08-01"))
+    @event = Factory.build(:tokyo01, :end_on => Date.parse("2008-08-01"))
   end
 
   describe "when the day before" do
@@ -96,27 +96,32 @@ describe Event, "for toppage" do
 
     Event.create_without_validation(:name => 'rubykaigi2008',
       :title => 'RubyKaigi2008', :capacity => 800,
-      :scheduled_on => Date.parse("2008-06-20"),
+      :start_on => Date.parse("2008-06-20"),
+      :end_on => Date.parse("2008-06-20"),
       :publish_at => DateTime.parse("2008-03-01 12:00:00"))
 
     Event.create_without_validation(:name => 'tokyo01',
       :title => '東京Ruby会議01', :capacity => 100,
-      :scheduled_on => Date.parse("2008-08-20"),
+      :start_on => Date.parse("2008-08-20"),
+      :end_on => Date.parse("2008-08-20"),
       :publish_at => DateTime.parse("2008-08-13 12:00:00"))
 
     Event.create_without_validation(:name => 'sapporo01',
       :title => '札幌Ruby会議01', :capacity => 100,
-      :scheduled_on => Date.parse("2008-10-25"),
+      :start_on => Date.parse("2008-10-25"),
+      :end_on => Date.parse("2008-10-25"),
       :publish_at => DateTime.parse("2008-09-16 12:00:00"))
 
     Event.create_without_validation(:name => 'matsue01',
       :title => '松江Ruby会議01', :capacity => 100,
-      :scheduled_on => Date.parse("2008-10-18"),
+      :start_on => Date.parse("2008-10-18"),
+      :end_on => Date.parse("2008-10-18"),
       :publish_at => DateTime.parse("2008-09-10 12:00:00"))
 
     Event.create_without_validation(:name => 'kyushu01',
       :title => '九州Ruby会議01', :capacity => 80,
-      :scheduled_on => Date.parse("2008-12-14"),
+      :start_on => Date.parse("2008-12-14"),
+      :end_on => Date.parse("2008-12-14"),
       :publish_at => DateTime.parse("2008-11-30 12:00:00"))
   end
 
@@ -147,4 +152,9 @@ describe Event, "for toppage" do
     it { @archives[0].name.should == "rubykaigi2008" }
     it { @archives[1].name.should == "tokyo01" }
   end
+end
+
+describe Event, "#single_day?" do
+#  it { Factory(:kansai01).should_not single_day? }
+  it { Factory.build(:tokyo01).should be_single_day }
 end

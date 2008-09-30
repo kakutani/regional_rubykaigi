@@ -18,7 +18,7 @@ class Admin::EventsController < AdminController
 
   def new
     @event = Event.new
-
+    @event.capacity = 0
     respond_to do |format|
       format.html
     end
