@@ -15,7 +15,8 @@ class Event < ActiveRecord::Base
 
   validates_uniqueness_of :name
   validates_format_of :name, :with => /[a-z]+\d+/, :message => "は、開催場所アルファベット名に数字を加えたもの(例:tokyo01)にしてください。"
-  validates_presence_of :name, :title, :start_on, :end_on, :contact_email, :official_tag
+  validates_presence_of :name, :title, :start_on, :end_on
+#  validates_presence_of :contact_email, :official_tag
   validates_numericality_of :capacity, :only_integer => true
 
   def registration_enabled?
