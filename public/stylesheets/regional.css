@@ -76,6 +76,15 @@ div.event_index h2 {
 	color: #666;
 }
 
+div.event_index h3 {
+	font-size: 16px;
+	margin-top: 10px
+	margin-left: 2em;
+	padding: 3px;
+	color: #666;
+}
+
+
 div.event_index ul {
 	margin-left: 2em;
 }
