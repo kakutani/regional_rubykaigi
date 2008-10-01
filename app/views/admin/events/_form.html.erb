@@ -41,7 +41,7 @@ URLとして使う名前: <%= form.text_field :name %><br />
 <legend><%= form.radio_button :use_builtin_registration, false %><label for="event_use_builtin_registration_false">外部のサイトなどを利用する</legend>
 <p>
 イベントに登録したいユーザはどうすればよいのか、説明を書いてください。<br />
-例えば、申し込みページのURLとその説明などがふさわしいでしょう(<%= link_to_hikidoc %>):
+例えば、申し込みページのURLとその説明などがふさわしいでしょう(<%= link_to_hikidoc %>):<br />
 <%= form.text_area :register_information, :cols => 75, :rows => 5 %>
 </p>
 </fieldset>
