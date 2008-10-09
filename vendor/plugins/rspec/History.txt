@@ -1,4 +1,26 @@
-=== Version 1.1.5
+=== Version 1.1.8 / 2008-10-03
+
+* 2 bug fixes
+
+  * restore colorized output in linux and windows w/ autotest (Tim Pope). Fixes #413.
+  * autospec no longer hangs on windows. Fixes #554.
+
+=== Version 1.1.7 / 2008-10-02
+
+* no changes since 1.1.6, but releasing rspec-1.1.7 to align versions with rspec-rails-1.1.7
+
+=== Version 1.1.6 / 2008-10-02
+
+* 2 bug fixes
+
+	* fixed bug where negative message expectations following stubs resulted in false (negative) positives (Pat Maddox). Closes #548.
+	* fixed bug where Not Yet Implemented examples report incorrect caller (Scott Taylor). Closes #547.
+
+* 1 minor enhancement
+
+	* removed deprecated mock argument constraint symbols
+
+=== Version 1.1.5 / 2008-09-28
 
 IMPORTANT: use the new 'autospec' command instead of 'autotest'. We changed
 the way autotest discovers rspec so the autotest executable won't
