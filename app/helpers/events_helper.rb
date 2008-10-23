@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 module EventsHelper
   def render_registration_link
-    if @event.single_day?
+    if @event.use_builtin_registration?
       content_tag :div, :class => "registration_link" do
         if @event.registration_enabled?
           link_to('フォームから参加登録をする', :action => 'registration')
