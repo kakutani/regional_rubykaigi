@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   has_many :attendees
 
   named_scope :upcomings, lambda {
-    {:conditions => ["force_disabled = ? and start_on > ?",
+    {:conditions => ["force_disabled = ? and start_on >= ?",
         false, Date.today],
       :order => "start_on DESC"}
   }

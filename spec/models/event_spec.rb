@@ -123,6 +123,12 @@ describe Event, "for toppage" do
       :start_on => Date.parse("2008-12-14"),
       :end_on => Date.parse("2008-12-14"),
       :publish_at => DateTime.parse("2008-11-30 12:00:00"))
+
+    Event.create_without_validation(:name => 'dokoka01',
+      :title => 'どこかのRuby会議01', :capacity => 80,
+      :start_on => Date.parse("2008-09-17"),
+      :end_on => Date.parse("2008-09-17"),
+      :publish_at => DateTime.parse("2008-11-30 12:00:00"))
   end
 
   before(:each) do
@@ -130,17 +136,18 @@ describe Event, "for toppage" do
     DateTime.stub!(:now).and_return(DateTime.parse("2008-09-17 15:00:00"))
   end
 
-  it { Event.should have(5).records }
+  it { Event.should have(6).records }
 
   describe "upcomings" do
     before do
       @upcomings = Event.upcomings
     end
 
-    it { @upcomings.size.should == 3 }
+    it { @upcomings.size.should == 4 }
     it { @upcomings[0].name == "matsue01" }
-    it { @upcomings[1].name == "sapporo01" }
     it { @upcomings[1].name == "kyushu01" }
+    it { @upcomings[2].name == "sapporo01" }
+    it { @upcomings[3].name == "kyushu01" }
   end
 
   describe "archives" do
