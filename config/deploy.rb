@@ -49,6 +49,7 @@ namespace :deploy do
     setup_shared("db", "production.sqlite3")
     setup_shared_config("config_action_controller_session.rb")
     setup_shared_config("initializers/site_keys.rb")
+    setup_shared_config("initializers/app_config.rb")
   end
 
   desc "resart for our application"
