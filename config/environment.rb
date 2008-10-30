@@ -12,7 +12,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 # Application specific configurations
 app_configs = [
-  APP_CONFIG = Struct.new(:url, :admin_email).new,
+  APP_CONFIG = Struct.new(:url, :admin_email,:tdiary_user, :tdiary_passwd).new,
 ]
 
 

@@ -129,3 +129,7 @@ a.regional_rubykaigi, a.regional_rubykaigi:visited {
 	font-weight:bold;
 	text-decoration: none;
 }
+
+span.secret {
+	color: #ccc;
+}
