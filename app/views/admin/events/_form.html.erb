@@ -1,7 +1,7 @@
 <p>
-URLとして使う名前: <%= form.text_field :name %><br />
-(例 http://regional.rubykaigi.org/<strong>tokyo01</strong>)<br />
 イベントのタイトル: <%= form.text_field :title %><br />
+URLとして使う名前: <%= form.text_field :name %><br />
+(例 http://regional.rubykaigi.org/<strong>tokyo01</strong>。URLとして使う名前から自動的に公式タグが決まります。この例の場合、<strong>tokyo</strong>rubykaigi<strong>01</strong>が公式タグです)<br />
 </p>
 <p>
 イベントの会期:<br />
@@ -12,11 +12,10 @@ URLとして使う名前: <%= form.text_field :name %><br />
 
 <p>
 連絡用メールアドレス: <%= form.text_field :contact_email %><br />
-公式タグ: <%= form.text_field :official_tag %><br />
 </p>
 
 <p>
-<% start_year = @event.publish_at.year || Date.today.year %>
+<% start_year = (!@event.publish_at.blank? && @event.publish_at.year) || Date.today.year %>
 ウェブページを公開する日時: <%= form.datetime_select :publish_at, {:start_year => start_year, :use_month_numbers => true, :minute_step => 15} %><br />
 (ここで指定した日時を過ぎると、トップページからイベント個別のページへのリンクが有効になります)
 </p>
