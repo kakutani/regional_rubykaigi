@@ -165,3 +165,22 @@ describe Event, "#single_day?" do
 #  it { Factory(:kansai01).should_not single_day? }
   it { Factory.build(:tokyo01).should be_single_day }
 end
+
+describe Event, "#official_tag" do
+  describe "has no name" do
+    before do
+      event = Event.new
+      @it = event.official_tag
+    end
+    it { @it.should be_nil }
+  end
+
+  describe "has valid event name" do
+    before do
+      @it = Factory.build(:tokyo01).official_tag
+    end
+
+    it { @it.should == "tokyorubykaigi01" }
+  end
+
+end

@@ -39,6 +39,12 @@ class Event < ActiveRecord::Base
     start_on == end_on
   end
 
+  def official_tag
+    return nil unless name
+    city, count = name.match(/(\D+)(\d+)/)[1..2]
+    "#{city}rubykaigi#{count}"
+  end
+
   private
   def attendees_count
     attendees.count
