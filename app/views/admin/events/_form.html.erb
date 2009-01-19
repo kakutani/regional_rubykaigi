@@ -16,7 +16,8 @@ URLとして使う名前: <%= form.text_field :name %><br />
 </p>
 
 <p>
-ウェブページを公開する日時: <%= form.datetime_select :publish_at, {:start_year => Date.today.year, :use_month_numbers => true, :minute_step => 15} %><br />
+<% start_year = @event.publish_at.year || Date.today.year %>
+ウェブページを公開する日時: <%= form.datetime_select :publish_at, {:start_year => start_year, :use_month_numbers => true, :minute_step => 15} %><br />
 (ここで指定した日時を過ぎると、トップページからイベント個別のページへのリンクが有効になります)
 </p>
 <p>
