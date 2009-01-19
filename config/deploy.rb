@@ -58,7 +58,7 @@ namespace :deploy do
     start
   end
 
-  task :after_restart do
-    notify_irc_cat
-  end
+#  task :after_restart do
+#    notify_irc_cat
+#  end
 end
