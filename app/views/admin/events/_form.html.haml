@@ -1,0 +1,86 @@
+%p
+  イベントのタイトル:
+  = form.text_field :title
+  %br
+  URLとして使う名前:
+  = form.text_field :name
+  %br
+  (例 http://regional.rubykaigi.org/<strong>tokyo01</strong>。URLとして使う名前から自動的に公式タグが決まります。この例の場合、<strong>tokyo</strong>rubykaigi<strong>01</strong>が公式タグです)
+  %br
+
+%p
+  イベントの会期:<br />
+  開始日:
+  = form.text_field :start_on
+  %br
+  終了日:
+  = form.text_field :end_on
+  %br
+  (単日開催の場合は、開始日と終了日を同じ日にしてください)
+
+%p
+  連絡用メールアドレス:
+  = form.text_field :contact_email
+  %br
+
+%p
+  - start_year = (!@event.publish_at.blank? && @event.publish_at.year) || Date.today.year
+  ウェブページを公開する日時:
+  = form.datetime_select :publish_at, {:start_year => start_year, :use_month_numbers => true, :minute_step => 15}
+  %br
+  (ここで指定した日時を過ぎると、トップページからイベント個別のページへのリンクが有効になります)
+
+%p
+  = form.label :force_disabled, 'イベントを無効にする:'
+  = form.check_box :force_disabled
+  %br
+  (このチェックボックスをONにすると、一般の閲覧者からはイベントの存在が見えなくなります)
+
+
+%p
+  申し込み登録の設定:
+
+  %fieldset#register_builtin
+    %legend
+      = form.radio_button :use_builtin_registration, true
+      %label{:for => "event_use_builtin_registration_true"} regional.rubykaigi.org提供の登録フォームを利用する
+    %p
+      参加登録の定員:
+      = form.text_field :capacity, :size => 5
+      = form.check_box :notify_email_enabled
+      = form.label :notify_email_enabled, '登録されたらメールで通知する'
+
+  %fieldset#register_external
+    %legend
+      = form.radio_button :use_builtin_registration, false
+      %label{:for => "event_use_builtin_registration_false"} 外部のサイトなどを利用する
+    %p
+      イベントに登録したいユーザはどうすればよいのか、説明を書いてください。<br />
+      == 例えば、申し込みページのURLとその説明などがふさわしいでしょう(#{link_to_hikidoc}):<br />
+
+    = form.text_area :register_information, :cols => 75, :rows => 5
+
+%p
+  == イベント開催翌日以降に表示するメッセージ(#{link_to_hikidoc}):<br />
+  = form.text_area :message_of_the_day_after, :cols => 75, :rows => 5
+  %br
+  == イベントの説明(#{link_to_hikidoc}):<br />
+  = form.text_area :desc, :cols => 75, :rows => 20
+  %br
+
+- content_for :css do
+  = stylesheet_link_tag "ui.datepicker"
+
+- content_for :javascript do
+  = javascript_include_tag "ui.datepicker"
+
+:javascript
+  $(function(){
+    function initDatePicker(id){
+      $(id).datepicker("setDate",
+      $.datepicker.parseDate('yy-mm-dd', $(id).val()));
+      $(id).datepicker({dateFormat: 'yy-mm-dd'})
+    };
+    initDatePicker("#event_start_on");
+    initDatePicker("#event_end_on");
+  });
