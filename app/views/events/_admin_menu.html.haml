@@ -1,0 +1,15 @@
+- if logged_in_as_admin?
+  %h2 管理者用メニュー
+  %ul
+    %li= link_to '地域Ruby会議を新しく開催する', new_admin_event_path
+  %ul
+    %li= link_to '地域Ruby会議の一覧', admin_events_path
+    %li= link_to 'ユーザ(というか管理者)の一覧', admin_users_path
+
+  %h3 関連サイト
+  %ul
+    %li= link_to 'redmine.ruby-lang.orgのRegionalRubyKaigiのWiki', 'http://redmine.ruby-lang.org/wiki/rubykaigi/RegionalRubyKaigi'
+    %li
+      = succeed ',' do
+        = link_to 'RubyKaigi日記', 'http://rubykaigi.tdiary.net/'
+      %span.secret&== ユーザ名: #{APP_CONFIG.tdiary_user} / パスワード: #{APP_CONFIG.tdiary_passwd}
