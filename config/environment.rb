@@ -41,6 +41,7 @@ Rails::Initializer.run do |config|
   config.gem('rspec-rails',
     :lib => 'spec',
     :source => 'http://rspec.rubyforge.org')
+  config.gem('haml')
 
 
   # Only load the plugins named here, in the order given. By default, all plugins
