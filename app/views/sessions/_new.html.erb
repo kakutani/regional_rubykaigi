@@ -1,8 +1,0 @@
-<h1>Log In</h1>
-<p>(アカウントがあらかじめ存在していないとログインできません)</p>
-<% form_tag :controller => 'sessions', :action => 'create' do -%>
-<p>
-  <label for="openid_identifier">OpenID:</label>
-  <%= text_field_tag "openid_identifier", @openid_identifier, :size => 50 %>&nbsp;&nbsp;<%= submit_tag 'Log in' %></p>
-</p>
-<% end -%>
