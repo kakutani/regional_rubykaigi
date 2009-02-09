@@ -1,0 +1,10 @@
+%h2 新しく地域Ruby会議を開催する
+
+- form_for(@event, :url => {:action => "create"}) do |f|
+  = f.error_messages
+  = render :partial => "form",:locals => {:form => f}
+  %p= f.submit "Create"
+
+= render :partial => "preview"
+
+.backto= link_to 'イベント一覧', admin_events_path
