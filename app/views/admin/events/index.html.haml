@@ -1,0 +1,15 @@
+%h1 Listing events
+
+= link_to 'New event', new_admin_event_path
+
+%table
+  - @events.each do |event|
+    %tr{:style => "vertical-align:bottom"}
+      %td
+        %span{:style => "font-size:18px;"}&= event.title
+        %br
+        %div{:style => "text-align:right"}
+          = link_to  '編集', edit_admin_event_path(event)
+          = link_to '<strong>削除</strong>', {:action => 'destroy', :id => event}, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to '参加登録者一覧', admin_event_attendees_path(event)
+      %td= link_to '公開ページ', event_path(:name => event.name)
