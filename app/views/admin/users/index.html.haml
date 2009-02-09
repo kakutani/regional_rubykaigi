@@ -1,0 +1,18 @@
+%h1 Listing users
+
+= link_to 'New user', new_admin_user_path
+
+%table.attendee_list
+  %tr
+    %th Login
+    %th Identity Url
+    %th admin?
+  - @users.each do |user|
+    %tr
+      %td{:style => "padding: 0 1em;"}&= user.login
+      %td&= user.identity_url
+      %td{:style => "padding: 0 1em;"}= check_box_tag :admin, true, user.admin?, :disabled => true
+      %td.command= link_to 'Edit', edit_admin_user_path(user)
+      %td.command= link_to 'Destroy', {:action => :destroy, :id => user}, :confirm => 'Are you sure?', :method => :delete
+
+%br
