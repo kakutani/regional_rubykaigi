@@ -1,0 +1,10 @@
+:ruby
+  preview_opts = {
+    :url => {:controller => "admin/events", :action => "preview", :id => @event.id},
+    :update => 'preview',
+    :submit => "edit_event",
+    :method => :put
+  }
+
+= link_to_remote('Preview', preview_opts)
+#preview{:style => "padding:1em;border:1px solid #ccc;"}
