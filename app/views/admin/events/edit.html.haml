@@ -1,0 +1,13 @@
+%h2 地域Ruby会議の情報を編集する
+
+%p= link_to '参加登録者の一覧', admin_event_attendees_path(@event)
+
+#edit_event
+  - form_for(@event, :url => {:action => 'update'}) do |f|
+    = f.error_messages
+    = render :partial => "form", :locals => {:form => f}
+    %p= f.submit "Update"
+
+= render :partial => "preview"
+
+.backto= link_to 'イベント一覧', admin_events_path

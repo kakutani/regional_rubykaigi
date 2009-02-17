@@ -1,0 +1,19 @@
+- content_for :css do
+  = stylesheet_link_tag "admin_print", :media => :print
+
+%h1
+  参加登録者:
+  = link_to h(@event.title), edit_admin_event_path(@event)
+
+%table.attendee_list
+  %tr
+    %th No.
+    %th 名前
+    %th メールアドレス
+    %th.command &nbsp;
+  - @attendees.each_with_index do |attendee, idx|
+    %tr
+      %td&= idx + 1
+      %td&= attendee.name
+      %td&= attendee.email
+      %td.command= link_to('キャンセル', url_for(:action => 'destroy', :id => attendee), :confirm => 'Are you sure?', :method => :delete)

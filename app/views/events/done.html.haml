@@ -1,0 +1,7 @@
+%h2
+  参加登録完了:
+  &= @event.title
+
+.backto
+  = link_to h(@event.title), :name => @event.name, :action => 'show'
+  への登録が完了しました。

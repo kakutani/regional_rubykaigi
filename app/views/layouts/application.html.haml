@@ -1,0 +1,41 @@
+!!! Strict
+
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+    %meta{"http-equiv" => "Content-Style-Type", :content => "text/css"}
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "regional"
+    = stylesheet_link_tag "simplemodal"
+    / IE 6 hacks
+    /[if lt IE 7]
+      = stylesheet_link_tag "simplemodal_ie", :media => :screen
+    = javascript_include_tag ["jquery", "jquery-ui", "jrails", "application"]
+    = javascript_include_tag "jquery.simplemodal-1.1.1.pack"
+    = javascript_include_tag "login_dialog"
+    = yield :javascript
+    %title&= page_title
+
+  %body
+    = render :partial => "users/user_bar"
+
+    %div{:style => "background: #000"}
+      %div{:style => "width: 90%; margin: 0 auto"}
+        = link_to "Regional RubyKaigi", root_path, :class => "regional_rubykaigi"
+
+    #wrapper
+      #container
+        = render :partial => "shared/flash", :locals => {:flash => flash}
+        = yield
+
+    %div{:style => "background: #000"}
+      %div{:style => "width:90%; margin:0 auto; text-align:right"}
+        = link_to "Regional RubyKaigi", root_path, :class => "regional_rubykaigi"
+
+    :javascript
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+    :javascript
+      var pageTracker = _gat._getTracker("UA-56065-3");
+      pageTracker._trackPageview();

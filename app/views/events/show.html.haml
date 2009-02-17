@@ -1,0 +1,26 @@
+- if !@event.published? && logged_in_as_admin?
+  .admin_notice 現在、この画面は管理者にしか見えません。
+
+.event
+  %h2
+    = precede h(@event.title) do
+      %span.official_tag&== (#{@event.official_tag})
+
+    -# TODO duplicated
+    - if logged_in_as_admin?
+      %span.admin_event_edit{:style => "font-size:60%;font-weight:normal;"}
+        = link_to '編集', edit_admin_event_path(@event)
+
+  - if @event.expired?
+    .event_was_over= render_hiki(@event.message_of_the_day_after)
+
+  %h3 参加登録
+  = render_registration_link
+
+  .event_desc= render :partial => "event_desc", :locals => {:event => @event}
+
+  %h3 参加登録
+  = render_registration_link
+
+  %h3 お問い合わせ
+  %p.contact&== #{@event.title}に関するお問い合わせは、#{@event.contact_email.gsub(/@/, ' _at_ ')}までメールにてご連絡ください。
