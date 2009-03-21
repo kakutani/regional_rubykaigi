@@ -12,7 +12,7 @@
   %p 地域Ruby会議(Regional RubyKaigi;りーじょなるるびーかいぎ)は、小さな<a href="http://rubykaigi.org/">RubyKaigi</a>をいろんな地域でやってしまおうというプロジェクトです。日本Rubyの会が<a href="http://www.fdiary.net/ml/ruby/msg/1929">後援</a>しています。
 
   %h2 これから開催される地域Ruby会議
-  最新情報の確認は<a href="http://rubykaigi.tdiary.net/">RubyKaigi日記</a>が便利です。
+  %div 最新情報の確認は<a href="http://rubykaigi.tdiary.net/">RubyKaigi日記</a>が便利です。
 
   %ul
     - unless @upcomings.blank?
@@ -24,7 +24,7 @@
         - if logged_in_as_admin?
           %span.admin_event_edit= link_to '編集', edit_admin_event_path(event)
     - else
-      %li 開催予定の地域Ruby会議はありません
+      %li <span style="color:#999;font-size:large;">(開催予定の地域Ruby会議はありません)</span>
 
   %h2 過去の地域Ruby会議
   %ul
@@ -35,6 +35,11 @@
       -# TODO duplicated
       - if logged_in_as_admin?
         %span.admin_event_edit= link_to '編集', edit_admin_event_path(event)
+
+  %h2 地域Ruby会議を開催するには
+  %div
+    = link_to(h('redmine.ruby-lang.orgのWiki'), 'http://redmine.ruby-lang.org/wiki/rubykaigi/RegionalRubyKaigi')
+    を参照してください。
 
   = render(:partial => "admin_menu")
 

@@ -89,6 +89,10 @@ div.event_index ul {
 	margin-left: 2em;
 }
 
+div.event_index div {
+	margin-left: 2em;
+}
+
 div.event_index li {
 	list-style-type: none;
 	margin-bottom: 10px;
