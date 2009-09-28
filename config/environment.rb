@@ -34,8 +34,6 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'haml'
   config.gem 'ruby-openid', :lib => 'openid', :version => '>= 2.0.4'
-  config.gem 'gettext', :version => '=1.93.0'
-
 
   # Only load the plugins named here, in the order given. By default, all plugins
   # in vendor/plugins are loaded in alphabetical order.

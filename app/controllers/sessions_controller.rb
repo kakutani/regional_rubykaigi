@@ -28,7 +28,8 @@ protected
         if user
           self.current_user = user
           redirect_back_or_default('/')
-          flash[:notice] = _("Logged in successfully")
+          # TODO i18n
+          flash[:notice] = "ログインに成功しました"
         else
           # XXX this case is login was succeeded but doesn't any account available.
           # TODO user not found case
