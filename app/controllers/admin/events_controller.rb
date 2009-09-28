@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class Admin::EventsController < AdminController
   def index
-    @events = Event.find(:all)
+    @events = Event.find(:all, :order => "created_at DESC")
 
     respond_to do |format|
       format.html
