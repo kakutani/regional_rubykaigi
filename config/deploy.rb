@@ -52,10 +52,12 @@ namespace :deploy do
     setup_shared_config("initializers/app_config.rb")
   end
 
-  desc "resart for our application"
-  task :restart, :roles => :app, :except => { :no_release => true } do |t|
-    stop
-    start
+  desc "Restart Passenger"
+  task :restart do
+    run "touch #{latest_release}/tmp/restart.txt"
+  end
+
+  task :stop, :roles => :app do
   end
 
 #  task :after_restart do
