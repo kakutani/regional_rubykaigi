@@ -11,9 +11,10 @@
     %th 名前
     %th メールアドレス
     %th.command &nbsp;
+  - attendees_count = @attendees.size
   - @attendees.each_with_index do |attendee, idx|
     %tr
-      %td&= idx + 1
+      %td&= attendees_count - idx
       %td&= attendee.name
       %td&= attendee.email
       %td.command= link_to('キャンセル', url_for(:action => 'destroy', :id => attendee), :confirm => 'Are you sure?', :method => :delete)
