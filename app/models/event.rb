@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   named_scope :archives, lambda {
     {:conditions => ["force_disabled = ? and publish_at <= ? and end_on < ?",
         false, DateTime.now, Date.today],
-     :order => "end_on"}
+     :order => "end_on DESC"}
   }
 
   validates_uniqueness_of :name
