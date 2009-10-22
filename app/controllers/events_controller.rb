@@ -33,6 +33,10 @@ class EventsController < ApplicationController
 
   private
   def fetch_event
+    if params[:name] == "tokyo02"
+      redirect_to event_path(:action => 'show', :name => 'tokyu01')
+      return
+    end
     @event = Event.find_by_name(params[:name])
     @page_title = @event.title
   end
