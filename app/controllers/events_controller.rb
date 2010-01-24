@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    return if render_original_template
   end
 
   def registration
@@ -52,6 +53,14 @@ class EventsController < ApplicationController
     unless @event.published?
       # FIXME もうちょっとユーザフレンドリーに
       redirect_to :action => 'index'
+    end
+  end
+
+  def render_original_template
+    begin
+      render @event.name, :layout => false
+    rescue ActionView::MissingTemplate 
+      return false
     end
   end
 end

@@ -1,0 +1,121 @@
+!!! XML
+!!! Strict
+
+%html
+  %head
+    %meta{:"http-equiv" => "Content-Type", :content => "text/html", :charset => "utf-8"}
+    %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=EmulateIE7" }
+    %meta{:name => "ROBOTS", :content => "NOARCHIVE" }
+    %meta{:name => "ROBOTS", :content => "INDEX,FOLLOW" }
+    %meta{:"http-equiv" => "imagetoolbar", :content => "no" }
+    %meta{:"http-equiv" => "Expires", :content => "Mon, 04 Dec 1999 21:29:02 GMT" }
+    %meta{:"http-equiv" => "Pragma", :content => "no-cache"}
+    %meta{:"http-equiv" => "cache-control", :content => "no-cache"}
+    %meta{:name => "keywords", :content => "東京, Ruby, 会議, Kaigi, 03"}
+    %meta{:name => "description", :content => "東京Ruby会議03の公式サイト。プログラムや参加登録のご案内など。"}
+    %script{:type => 'text/javascript', :src => 'http://ajax.googleapis.com/ajax/libs/mootools/1.2.3/mootools-yui-compressed.js'}
+    %script{:type => 'text/javascript', :src => '/sexylightbox/sexylightbox.v2.3.mootools.js'}
+    :javascript
+      window.addEvent('domready', function(){
+        SexyLightbox = new SexyLightBox({color:'white'});
+      });
+    %link{:href => "/sexylightbox/sexylightbox.css", :rel => 'stylesheet', :type => "text/css", :media => "all"}
+    %link{:href => "/stylesheets/tokyo03.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %title 東京Ruby会議03 - Regional RubyKaigi
+  %body
+    #container.main
+      #usernav
+        %h1 - Tokyo Ruby Kaigi 03 Official Site -
+        %ul
+          - if logged_in_as_admin?
+            %li
+              = link_to '編集', edit_admin_event_path(@event)
+          %li
+            %a.not_current{:href => "/login",} Login
+          %li
+            %a.not_current{:href => "/",} Regional RubyKaigi
+            %a{:name => 'top'}
+      #header
+        %h2
+          %img{:alt => "Tokyo Ruby Kaigi03 2010-02-27(SUN) at Oracle Aoyama Center", :src => "/images/tokyo03/top_main.jpg"}
+      #sidebar
+        %h3
+          %img{:alt => 'REGISTER', :src => '/images/tokyo03/register_head.gif'}
+        - if @event.expired?
+          = render_hiki(@event.message_of_the_day_after)
+        - elsif !@event.registration_enabled?
+          %p#register_btn
+            = message_for_retgistration_is_closed
+        - else
+          %p#register_btn
+            %a{:href => '/tokyo03/registration?TB_iframe=true&height=580&width=550'}
+              %img{:alt => '参加登録はこちら', :src => '/images/tokyo03/register_btn.gif'}
+        %h3
+          %img{:alt => 'TAGS', :src => '/images/tokyo03/tags_head.gif'}
+        #tags
+          %p
+            %img{:alt => 'TAGS', :src => '/images/tokyo03/tags_for_twitter.gif'}
+            %br
+            \#tork03
+          %p
+            %img{:alt => 'TAGS', :src => '/images/tokyo03/tags_for_blog.gif'}
+            %br
+            tokyorubykaigi03
+        %h3
+          %img{:alt => 'LINKS', :src => '/images/tokyo03/links_head.gif'}
+        #link
+          %p
+            %a{:href=>'http://twitter.com/#search?q=%23tork03', :target => '_blank'}
+              %img{:alt => '', :src => '/images/tokyo03/links_twitter.gif'}
+          %p
+            %a{:href=>'http://www.flickr.com/photos/tags/tokyorubykaigi03', :target => '_blank'}
+              %img{:alt => '', :src => '/images/tokyo03/links_flickr.gif'}
+          %p
+            %a{:href=>'http://www.ustream.tv/channel/tokyorubykaigi03', :target => '_blank'}
+              %img{:alt => '', :src => '/images/tokyo03/links_ustream.gif'}
+        %h3
+          %img{:alt => 'ACCESS', :src =>'/images/tokyo03/access_head.gif'}
+        #access
+          %p
+            〒107-0061
+            %br
+            東京都港区北青山2-5-8
+            %br
+            オラクル青山センター 13F
+          %ul
+            %li
+              地下鉄銀座線 外苑前駅 4B出口より接続
+            %li
+              地下鉄銀座線・半蔵門線・大江戸線 青山一丁目駅より 徒歩9分
+            %li
+              地下鉄銀座線・半蔵門線・千代田線 表参道駅より 徒歩10分
+          %p
+            %a{:href => '/images/tokyo03/access_map.gif', :rel => 'sexylightbox'}
+              地図はこちら
+        %h3
+          %img{:alt => 'STAFFS', :src => '/images/tokyo03/staffs_head.gif'}
+        #staffs
+          %ul
+            %li 実行委員長: 高井直人
+            %li 会計: 相澤歩
+            %li 橋本明彦
+            %li 大場光一郎
+            %li 櫻井達生
+            %li 米澤慎
+            %li 高木誠
+            %li 堀直人
+            %li 小芝敏明
+            %li 山内健司
+            %li 今井智和
+            %li 近藤美沙
+            %li 赤松祐希
+            %li 真砂一穂
+            %li 佐久間尚広
+            %li 関谷繭子
+            %li 荻野淳也
+            %li 川口恭伸
+      #content
+        .event_desc= render :partial => "event_desc", :locals => {:event => @event}
+      #footer
+        %p
+          &copy 2010 東京Ruby会議03実行委員会
